@@ -27,10 +27,10 @@ class GatewayTest extends TestCase
         parent::setUp();
 
         $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
-        $this->gateway->setUsername('36528a81-f66f-4833-8bf9-b397a64b2319');
-        $this->gateway->setPassword('Ppu-Si;1040;s5');
-        $this->gateway->setClientId('inverseschool-client-id');
-        $this->gateway->setClientSecret('627,x6(XxOQarFH');
+        $this->gateway->setUsername('36528a8');
+        $this->gateway->setPassword('Ppu');
+        $this->gateway->setClientId('company-client-id');
+        $this->gateway->setClientSecret('6545');
     }
 
     public function testPurchaseSuccess(): void
