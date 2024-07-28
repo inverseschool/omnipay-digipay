@@ -1,5 +1,5 @@
 {
-    "name": "armezit/omnipay-digipay",
+    "name": "inverseschool/omnipay-digipay",
     "type": "library",
     "description": "Digipay driver for the Omnipay payment processing library",
     "keywords": [
