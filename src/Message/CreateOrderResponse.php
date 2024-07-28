@@ -53,4 +53,9 @@ class CreateOrderResponse extends AbstractResponse implements RedirectResponseIn
     {
         return $this->data['ticket'];
     }
+
+    public function getMessage()
+    {
+        return $this->data['result']['message'];
+    }
 }
