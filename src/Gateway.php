@@ -9,7 +9,7 @@ namespace Omnipay\Digipay;
 
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\RequestInterface;
-use Omnipay\Digipay\Cache;
+use Omnipay\Digipay\Message\DeliverOrderRequest;
 use Omnipay\Digipay\Message\InquiryOrderRequest;
 use Omnipay\Digipay\Message\RefundOrderRequest;
 use Omnipay\Digipay\Message\VerifyOrderRequest;
@@ -157,6 +157,15 @@ class Gateway extends AbstractGateway
     public function completePurchase(array $options = []): RequestInterface
     {
         return $this->createRequest(VerifyOrderRequest::class, $options);
+    }
+
+    /**
+     * @param array $option
+     * @return RequestInterface
+     */
+    public function deliver(array $option): RequestInterface
+    {
+        return $this->createRequest(DeliverOrderRequest::class, $option);
     }
 
     /**
