@@ -40,6 +40,8 @@ class RefundOrderRequest extends AbstractRequest
             'amount' => $this->getAmount(),
             'providerId' => $this->getTransactionId(),
             'saleTrackingCode' => $this->getTransactionReference(),
+            'description' => 'refund request',
+            'customerName' => 'Inverse'
         ];
     }
 

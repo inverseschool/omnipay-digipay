@@ -63,8 +63,8 @@ Refund an order by the $refNum:
     $param= [
             'type' => 4,
             'amount' => 60,
-            'providerId' => 'asd23efawgdfyascdda', // transactionId
-            'saleTrackingCode' => 19259313601650191846745, // transactionReference
+            'transactionId' => 'asd23efawgdfyascdda', // transactionId
+            'transactionReference' => 19259313601650191846745, // transactionReference
         ];
     /** @var ReverseTicketResponse $response */
     $response = $this->gateway->refund($param)->send();

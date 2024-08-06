@@ -2,3 +2,5 @@ vendor/
 .idea/
 composer.lock
 .phpunit.result.cache
+createPurchase.php
+verifyPurchase.php
