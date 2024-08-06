@@ -21,7 +21,7 @@
             'phoneNumber' => $customerPhone,
             'transactionId' => rand(1111111, 99999999),
             'returnUrl' => 'http://localhost/return',
-            'courses' => [192, 193, 194],
+            'products' => [192, 193, 194],
             'cartId' => 180
         ])->send();
         
@@ -36,7 +36,7 @@
     }
 
 ```
-### Complete Purchase (Verify)
+### Complete Purchase (Verify && Deliver)
 
 ```php
 // Send purchase complete request
@@ -50,8 +50,13 @@
         // Payment failed: display message to customer
         echo $response->getMessage();
     } else {
+        $deliverResponse = $gateway->deliver([
+        'transactionReference' => '19259313601650191846745',
+        'type' => 13,
+        'products' => [192,193,194]
+        ])->send();
         // Payment was successful
-        print_r($response);
+        print_r($deliverResponse);
     }
 ```
 

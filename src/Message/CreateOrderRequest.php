@@ -44,17 +44,17 @@ class CreateOrderRequest extends AbstractRequest
      * @param array $courses
      * @return static
      */
-    public function setCourses(array $courses)
+    public function setProducts(array $products)
     {
-        return $this->setParameter('courses', $courses);
+        return $this->setParameter('products', $products);
     }
 
     /**
      * @return array
      */
-    protected function getCourses(): ?array
+    protected function getProducts(): ?array
     {
-        return $this->getParameter('courses');
+        return $this->getParameter('products');
     }
 
     /**
@@ -76,12 +76,12 @@ class CreateOrderRequest extends AbstractRequest
 
     protected function getBasketDetail(): ?array
     {
-        $courses = $this->getCourses();
+        $products = $this->getProducts();
 
-        foreach ($courses as $course)
+        foreach ($products as $product)
         {
             $data['items'] [] = [
-                "productCode" => $course,
+                "productCode" => $product,
                 "brand" => "Inverse",
                 "productType" => 3,
                 "count" => 1,
