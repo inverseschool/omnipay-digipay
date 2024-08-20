@@ -38,7 +38,7 @@ class VerifyOrderResponse extends AbstractResponse
      */
     public function isSuccessful()
     {
-        return (int)$this->getCode() === 200 && $this->data['result']['status'] === 0;
+        return (int)$this->getHttpStatus() === 200 && $this->getCode() === 0;
     }
 
     /**
@@ -46,7 +46,7 @@ class VerifyOrderResponse extends AbstractResponse
      */
     public function isCancelled()
     {
-        return (int)$this->getCode() === 200 && $this->data['result']['status'] === 1;
+        return (int)$this->getHttpStatus() === 200 && $this->getCode() === 1;
     }
 
     /**
@@ -55,6 +55,6 @@ class VerifyOrderResponse extends AbstractResponse
      */
     public function isPending()
     {
-        return (int)$this->getCode() === 200 && $this->data['result']['status'] === 2;
+        return (int)$this->getHttpStatus() === 200 && $this->getCode() === 2;
     }
 }
