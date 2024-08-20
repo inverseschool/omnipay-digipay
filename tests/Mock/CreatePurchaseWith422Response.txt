@@ -1,0 +1,13 @@
+HTTP/2 422
+server: nginx
+date: Fri, 30 Aug 2019 17:08:20 GMT
+content-type: application/json
+vary: Accept-Encoding
+vary: Accept-Encoding
+x-powered-by: PHP/7.0.7
+cache-control: private, must-revalidate
+pragma: no-cache
+expires: -1
+
+
+{"result": {"title": "CRT_MNG_PAY_GATEWAY_FOR_CELL_NUMBER_NOT_FOUND","status": 15805,"message": "سرویسی برای این شماره همراه یافت نشد","level": "WARN"}}

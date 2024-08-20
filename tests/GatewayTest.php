@@ -45,7 +45,7 @@ class GatewayTest extends TestCase
             'phoneNumber' => $customerPhone,
             'transactionId' => rand(1111111, 99999999),
             'returnUrl' => 'http://localhost/return',
-            'courses' => [192, 193, 194],
+            'products' => [192, 193, 194],
             'cartId' => 180
         ])->send();
 
@@ -53,6 +53,28 @@ class GatewayTest extends TestCase
         self::assertTrue($response->isRedirect());
         self::assertEquals('v2:ab17ec383d654be3b009f9fc45202f80',$response->getTransactionReference());
         self::assertEquals('https://uatweb.mydigipay.info/web-pay/tgs/v2:ab17ec383d654be3b009f9fc45202f80', $response->getRedirectUrl());
+    }
+
+
+    public function testMessageResponseInCreatePurchase(): void
+    {
+        $this->setMockHttpResponse(['GetToken.txt','CreatePurchaseWith422Response.txt']);
+        $amount = 60;
+        $customerPhone = '09056619083';
+
+        /** @var CreateOrderResponse $response */
+        $response = $this->gateway->purchase([
+            'amount' => $amount,
+            'phoneNumber' => $customerPhone,
+            'transactionId' => rand(1111111, 99999999),
+            'returnUrl' => 'http://localhost/return',
+            'products' => [192, 193, 194],
+            'cartId' => 180
+        ])->send();
+
+
+        self::assertEquals(15805, $response->getCode());
+        self::assertFalse($response->isSuccessful());
     }
 
     public function testPurchaseFailure(): void
@@ -67,7 +89,7 @@ class GatewayTest extends TestCase
             'phoneNumber' => $customerPhone,
             'transactionId' => rand(1111111, 99999999),
             'returnUrl' => 'http://localhost/return',
-            'courses' => [192, 193, 194],
+            'products' => [192, 193, 194],
             'cartId' => 180
         ])->send();
         self::assertFalse($response->isSuccessful());
