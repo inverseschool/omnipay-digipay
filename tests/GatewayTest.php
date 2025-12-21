@@ -101,6 +101,7 @@ class GatewayTest extends TestCase
         $this->setMockHttpResponse(['GetToken.txt', 'PurchaseCompleteSuccess.txt']);
         $param= [
             'transactionReference' => '19259313601650191846745',
+            'transactionId' => '132713002000200010',
             'type' => 4,
         ];
 
