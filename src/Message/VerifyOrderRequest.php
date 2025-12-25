@@ -65,7 +65,10 @@ class VerifyOrderRequest extends AbstractRequest
      */
     public function getData()
     {
-        return [];
+        return [
+            'providerId' => $this->getTransactionId(),
+            'trackingCode' => $this->getTransactionReference()
+        ];
     }
 
     /**
@@ -74,7 +77,7 @@ class VerifyOrderRequest extends AbstractRequest
      */
     protected function createUri(string $endpoint)
     {
-        return $endpoint . '/purchases/verify/' . $this->getTransactionReference() . '?type=' . $this->getType();
+        return $endpoint . '/purchases/verify' . '?type=' . $this->getType();
     }
 
     /**
