@@ -1,7 +1,7 @@
 {
     "name": "inverseschool/omnipay-digipay",
     "type": "library",
-    "description": "Digipay driver for the Omnipay payment processing library For inverse school website",
+    "description": "Digipay driver for the Omnipay payment processing library For inverse school",
     "keywords": [
         "gateway",
         "merchant",
